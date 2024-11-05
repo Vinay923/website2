@@ -6,7 +6,7 @@ const Blog = require('./models/blog')
 
 
 
-
+const PORT = process.env.PORT || 3000; 
 const dbURI = 'mongodb+srv://vinay:vinay@website1.q6bbi.mongodb.net/website1?retryWrites=true&w=majority&appName=website1';
 const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 mongoose.connect(dbURI)
-    .then((result) => app.listen(3000))
+    .then((result) => app.listen(PORT))
     .catch((err) => console.log(err));
 
 
